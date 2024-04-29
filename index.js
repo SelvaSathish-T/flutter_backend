@@ -90,11 +90,11 @@ app.get('/user_get', async (req, res) => {
 
 app.put('/user_edit/:id',async (req, res) => {
     try {
-        const { phone } = req.body;
+        const { firstName, lastName, phone , email, password, confirmPassword } = req.body;
         const objectId = req.params.id
         const updatedData = await userDB.findByIdAndUpdate(
             objectId,
-            { phone },
+            { firstName, lastName, phone , email, password, confirmPassword },
             { new: true }
         );
 
